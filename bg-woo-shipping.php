@@ -7,7 +7,6 @@ Version:        1.1
 Author:         V.Stefanova
 */
 define('WBSLURL', WP_PLUGIN_URL."/".dirname( plugin_basename( __FILE__ ) ) );
-
 define('WBSLPATH', WP_PLUGIN_DIR."/".dirname( plugin_basename( __FILE__ ) ) );
 
 
@@ -106,27 +105,56 @@ function my_custom_checkout_field_process() {
 ?>
 
 <style>
-.wes_labels{  width: 100%; border-radius: 3px; border: 1px solid #D1D3D4; }
-.wes_float_left { width: calc(50% - 5px); float: left; background-color: #ebebeb; margin-bottom: 10px; padding: 10px 5px; }
-.wes_float_left + .wes_float_left {
- margin-left: 10px; }
+.radio_fields { width: calc(50% - 5px); float: left; background-color: #ebebeb; margin-bottom: 10px; padding: 10px 5px; }
+.radio_fields + .radio_fields { margin-left: 10px; }
+.radio-label { width: 100%; margin-bottom: 0; }
 #custum_office,#custum_office option{ height: 2em !important; text-align:baseline !important; }
 #to_office,
 #to_address{ display: none; }
 #custum_town li,
 .ui-autocomplete li,
 .ui-autocomplete option,
-.ui-autocomplete ul{ background-color: #EBEBEB !important; list-style-type: none; max-width:  50px !important; line-height: 2em; }
+.ui-autocomplete ul { background-color: #EBEBEB !important; max-width: 280px; list-style-type: none; line-height: 2em; }
 .ui-helper-hidden-accessible { display: none; }
 ul.ui-autocomplete { margin-left: 0; }
+
+/* Base for label styling */
+.radio-field:not(:checked),
+.radio-field:checked { position: absolute; left: -9999px; }
+.radio-field:not(:checked) + label,
+.radio-field:checked + label { position: relative; padding-left: 25px; cursor: pointer; }
+/* radio aspect */
+.radio-field:not(:checked) + label:before,
+.radio-field:checked + label:before { position: absolute; top: 50%; transform: translateY(-50%); left: 0; width: 1.25em; height: 1.25em; border: 2px  solid #ccc; background: #fff; border-radius: 4px; box-shadow: inset 0 1px 3px rgba(0,0,0,.1); content: ''; }
+/* checked mark aspect */
+.radio-field:not(:checked) + label:after,
+.radio-field:checked + label:after { position: absolute; top: 5px; left: 3px; font-size: 1.3em; line-height: 0.8; color: #019067;; transition: all .2s;  content: '\2713\0020'; }
+/* checked mark aspect changes */
+.radio-field:not(:checked) + label:after { opacity: 0; transform: scale(0); }
+.radio-field:checked + label:after { opacity: 1; transform: scale(1); }
+/* disabled radio */
+.radio-field:disabled:not(:checked) + label:before,
+.radio-field:disabled:checked + label:before { box-shadow: none; border-color: #bbb; background-color: #ddd; }
+.radio-field:disabled:checked + label:after { color: #999; }
+.radio-field:disabled + label { color: #aaa; }
+/* hover style */
+.radio-label:hover:before { border: 2px solid #999898 !important; }
+
 </style>
 
 <span>Доставка до:</span>
 <br />
-<div class="wes_float_left"><input type="radio" class="wes_inputs" name="shipping_mode" value="office" id="radio_office" />
-<label for="radio_office" class="wes_labels">Офис на Еконт</label></div>
-<div class="wes_float_left"><input type="radio" class="wes_inputs" name="shipping_mode" value="address" id="radio_address" />
-<label for="radio_address" class="wes_labels">Личен адрес</label></div>
+<div class="radio_fields">
+  <input type="radio" class="radio-field" name="shipping_mode" value="office" id="radio_office" />
+
+  <label for="radio_office" class="radio-label">Офис на Еконт</label>
+</div>
+
+<div class="radio_fields">
+  <input type="radio" class="radio-field" name="shipping_mode" value="address" id="radio_address" />
+
+  <label for="radio_address" class="radio-label">Личен адрес</label>
+</div>
 <br />
 <?php
 }
