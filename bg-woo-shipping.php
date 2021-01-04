@@ -105,16 +105,17 @@ function my_custom_checkout_field_process() {
 ?>
 
 <style>
-.radio_fields { width: calc(50% - 5px); float: left; background-color: #ebebeb; margin-bottom: 10px; padding: 10px 5px; }
+.radio_fields { width: calc(50% - 5px); float: left; background-color: #f7f6f7; margin-bottom: 10px; padding: 10px 5px; }
 .radio_fields + .radio_fields { margin-left: 10px; }
 .radio-label { width: 100%; margin-bottom: 0; }
-#custum_office,#custum_office option{ height: 2em !important; text-align:baseline !important; }
+#custum_office,
+#custum_office option { height: 2em !important; background-color: #f7f6f7; text-align:baseline !important; }
 #to_office,
 #to_address{ display: none; }
 #custum_town li,
 .ui-autocomplete li,
 .ui-autocomplete option,
-.ui-autocomplete ul { background-color: #EBEBEB !important; max-width: 280px; list-style-type: none; line-height: 2em; }
+.ui-autocomplete ul { background-color: #f7f6f7 !important; max-width: 280px; list-style-type: none; line-height: 2em; }
 .ui-helper-hidden-accessible { display: none; }
 ul.ui-autocomplete { margin-left: 0; }
 
