@@ -115,7 +115,10 @@ function my_custom_checkout_field_process() {
 #custum_town li,
 .ui-autocomplete li,
 .ui-autocomplete option,
-.ui-autocomplete ul { background-color: #f7f6f7 !important; max-width: 280px; list-style-type: none; line-height: 2em; }
+.ui-autocomplete ul { background-color: #dbf2e0; max-width: 280px; list-style-type: none; line-height: 2em; }
+.ui-autocomplete li { position: relative; padding-left: 25px; transition: .3s ease-in; }
+.ui-autocomplete li:hover { cursor: pointer; background-color: #cde6d2; }
+.ui-autocomplete li:before { position: absolute; top: 50%; transform: translateY(-50%); left: 5px; content: '\27A4'; }
 .ui-helper-hidden-accessible { display: none; }
 ul.ui-autocomplete { margin-left: 0; }
 
