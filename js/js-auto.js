@@ -472,12 +472,16 @@ jQuery(document).ready(function($) {
                 "5981 Червен Бряг Общината кв. Червен бряг, ул. Г. С. Раковски №24"] },
                 { "value": "6200 Чирпан",        "data": ["6203 Чирпан Георги Димитров кв. Чирпан, ул. Любен Каравелов №24",
                 "6202 Чирпан Площада кв. Чирпан, ул. Янко Иванов №14"] },
-                { "value": "9700 Шумен",        "data": ["      9709 Шумен кв. Шумен, бул. Мадара №1",
+                { "value": "9700 Шумен",        "data": [
+               "9708 Шумен бул. Велики Преслав №1, кръстовището на бул. Велики Преслав и ул. Черноризец Храбър",
                 "9708 Шумен Дивдядово кв. Дивдядово, бул. Велики Преслав №136",
-                "9707 Шумен Осми март кв. Шумен, ул. Петра №22",
-                "9705 Шумен Тракия Тракия, бул. Симеон Велики №25",
-                "9703 Шумен Турбо кв. Шумен, бул. Симеон Велики №74В, Автоцентър турбо",
-                "9701 Шумен Цар Освободител кв. Шумен, ул. Цар Освободител №114"] },
+                "9709 Шумен кв. Шумен, бул. Мадара №1",
+                "9707 Шумен Осми март, ул. Петра №22",
+                "9705 Шумен Преслав, ул. Борис Спиров №28",
+                "9704 Шумен Скобелев ул. Генерал Скобелев №6",
+                "9705 Шумен Тракия, бул. Симеон Велики №25",
+                "9705 Шумен ул. Оборище №6",
+                "9701 Шумен Цар Освободител, ул. Цар Освободител №114"] },
                 { "value": "7078 Щръклево",        "data": ["7078 Щръклево ж.к. Щръклево, ул. Централна №35А"] },
                 { "value": "8989 Ябланово",        "data": ["88007 стоянка на мобилната станция - Ябланово, ул. Никола Вапцаров (пред сладкарницата)"] },
                 { "value": "8600 Ямбол",        "data": ["8604 Ямбол пл. Боровец, бул. Димитър Благоев №20, до пожарната",
@@ -507,14 +511,14 @@ jQuery(document).ready(function($) {
             });
 
             // hide not used fields
-            jQuery( ".radio_office" ).click(function() {
-              jQuery( ".custum_address" ).hide();
+            jQuery('.radio_office').click(function() {
+              jQuery('.custum_address').hide();
             });
 
             if(document.getElementById('radio_office')){
-              document.getElementById('radio_office').addEventListener("click", function(){document.getElementById("to_office").style.display = "block";document.getElementById("to_address").style.display = "none"});
+              document.getElementById('radio_office').addEventListener("click", function(){document.getElementById("to_office").style.display = "block";document.getElementById('to_address').style.display = "none"});
             }
             if(document.getElementById('radio_address')){
-            document.getElementById('radio_address').addEventListener("click", function(){document.getElementById("to_address").style.display = "block";document.getElementById("to_office").style.display = "none"});
+            document.getElementById('radio_address').addEventListener("click", function(){document.getElementById("to_address").style.display = "block";document.getElementById('to_office').style.display = "none"});
             }
 });
